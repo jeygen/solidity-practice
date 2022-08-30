@@ -1,4 +1,5 @@
-// SPDX-License-Identifier: GPL-3.0 // machine readable form of the license, important for Open Source projects
+// SPDX-License-Identifier: GPL-3.0 
+// machine readable form of the license, important for Open Source projects
 pragma solidity >=0.4.16 <0.9.0; // way to constrain the version of solidity
 
 // All identifiers are case sensitive, ASCII only, and can only contain the characters a-z, A-Z, 0-9, and _.
