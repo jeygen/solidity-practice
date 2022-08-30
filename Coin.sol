@@ -1,6 +1,12 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.8.4;
 
+/*
+    Simple form of cryptocurrency.
+    Only creator can create coins.
+    Anyone can transfer coins to other addresses.
+*/
+
 contract Coin {
     // The keyword "public" makes variables
     // accessible from other contracts
@@ -39,15 +45,16 @@ contract Coin {
 
     // Constructor code is only run when the contract
     // is created
+    // msg is a special global variable that allows access to the blockchain 
     constructor() {
-        minter = msg.sender;
+        minter = msg.sender; // msg.sender is where the current external function is being called from 
     }
 
     // Sends an amount of newly created coins to an address
     // Can only be called by the contract creator
     function mint(address receiver, uint amount) public {
-        require(msg.sender == minter);
-        balances[receiver] += amount;
+        require(msg.sender == minter); // require() reverts changes if the condition is not met
+        balances[receiver] += amount; // if overflow (exceeds 2**256-1) auto reverts 
     }
 
     // Errors allow you to provide information about
